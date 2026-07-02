@@ -1,0 +1,46 @@
+node_modules/
+node_modules_new/
+dist/
+.turbo/
+*.db
+*.db-journal
+.env
+.env.local
+.DS_Store
+*.tsbuildinfo
+
+# Moon cache
+.moon/cache/
+
+# pnpm store
+.pnpm-store-new/
+
+# Agent workspace output (session artifacts)
+apps/server/workspace/
+apps/server/data/
+
+# Server logs
+apps/server/logs/
+
+# Temp files
+_tmp_*
+*.tmp
+
+# Test artifacts
+tests/
+
+# Claude config
+.claude/
+CLAUDE.md
+
+# Local scratch / probe scripts
+apps/server/scratch/
+
+# Local LLM config — contains real API keys. Use config/models.example.json as a template.
+config/models.json
+
+# Local design/planning docs — not for publication
+docs/**/*.md
+
+
+

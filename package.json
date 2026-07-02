@@ -1,0 +1,23 @@
+{
+  "name": "src-agent",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "moon run :dev",
+    "dev:full": "node scripts/dev-with-langfuse.mjs",
+    "langfuse:up": "docker compose -f docker-compose.langfuse.yml up -d",
+    "langfuse:down": "docker compose -f docker-compose.langfuse.yml down",
+    "langfuse:logs": "docker compose -f docker-compose.langfuse.yml logs -f langfuse-web",
+    "build": "moon run :build",
+    "typecheck": "moon run :typecheck"
+  },
+  "engines": {
+    "node": ">=22.12.0",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "devDependencies": {
+    "@moonrepo/cli": "^2.2.6",
+    "playwright": "^1.52.0"
+  }
+}

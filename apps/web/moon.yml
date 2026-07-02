@@ -1,0 +1,22 @@
+language: typescript
+dependsOn:
+  - packages/types
+
+tasks:
+  dev:
+    command: pnpm dev
+    options:
+      runInCI: false
+
+  build:
+    command: pnpm build
+    inputs:
+      - 'src/**/*'
+    outputs:
+      - 'dist/**/*'
+
+  typecheck:
+    command: pnpm typecheck
+    inputs:
+      - 'src/**/*'
+      - 'tsconfig.json'

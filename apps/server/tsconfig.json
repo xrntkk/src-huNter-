@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "paths": {
+      "@src-agent/types": ["../../packages/types/src/index.ts"],
+      "@src-agent/db": ["../../packages/db/src/index.ts"],
+      "@src-agent/knowledge": ["../../packages/knowledge/src/index.ts"]
+    }
+  },
+  "include": ["src"]
+}

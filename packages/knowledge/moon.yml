@@ -1,0 +1,7 @@
+language: typescript
+tasks:
+  typecheck:
+    command: pnpm typecheck
+    inputs:
+      - 'src/**/*'
+      - 'tsconfig.json'

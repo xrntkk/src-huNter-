@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@src-agent/types": ["../../packages/types/src/index.ts"]
+    }
+  },
+  "include": ["src", "react-router.config.ts"]
+}

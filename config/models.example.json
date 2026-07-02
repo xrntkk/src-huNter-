@@ -1,0 +1,32 @@
+{
+  "models": [
+    {
+      "id": "00000000-0000-0000-0000-000000000001",
+      "name": "deepseek-v4-pro",
+      "provider": "deepseek",
+      "baseURL": "https://api.deepseek.com",
+      "apiKey": "sk-REPLACE_WITH_YOUR_DEEPSEEK_KEY",
+      "modelId": "deepseek-v4-pro",
+      "largeContext": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000002",
+      "name": "Claude (本地 CLI)",
+      "provider": "claude-cli",
+      "baseURL": "",
+      "apiKey": "",
+      "modelId": "opus"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000003",
+      "name": "claude-opus",
+      "provider": "anthropic",
+      "baseURL": "https://api.anthropic.com",
+      "apiKey": "sk-REPLACE_WITH_YOUR_ANTHROPIC_KEY",
+      "modelId": "claude-opus-4-8",
+      "largeContext": true
+    }
+  ],
+  "activeModelId": "00000000-0000-0000-0000-000000000001",
+  "fastModelId": "00000000-0000-0000-0000-000000000003"
+}

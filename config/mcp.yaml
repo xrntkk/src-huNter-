@@ -1,0 +1,12 @@
+mcpServers:
+  yakitmcp:
+    type: sse
+    command: ''
+    args: []
+    url: http://127.0.0.1:11432/sse
+    enabled: false
+  firecrawl:
+    type: sse
+    url: https://mcp.firecrawl.dev/{apiKey}/v2/mcp
+    apiKey: fc-f36614abb9dd4dce8f33940f087a72ae
+    enabled: true

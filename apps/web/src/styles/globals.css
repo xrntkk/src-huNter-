@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+/* Drive the `dark:` variant from the `.dark` class on <html> (set by ThemeProvider),
+   instead of Tailwind v4's default prefers-color-scheme media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    /* Fonts */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+    /* Surfaces — neutral light */
+    --bg-base: #ffffff;
+    --bg-surface: #ffffff;
+    --bg-elevated: #fafafa;
+    --bg-input: #f5f5f5;
+    --bg-card: #ffffff;
+    --bg-hover: #f5f5f5;
+    --bg-badge: #f5f5f5;
+
+    /* Text */
+    --text-primary: #0a0a0a;
+    --text-secondary: #404040;
+    --text-muted: #737373;
+    --text-placeholder: #a1a1a1;
+
+    /* Borders */
+    --border: #e5e5e5;
+    --border-strong: #d4d4d4;
+
+    /* Accent — primary (neutral, single-color) */
+    --accent: #171717;
+    --accent-hover: #2a2a2a;
+    --accent-foreground: #fafafa;
+
+    /* Status */
+    --danger: #e7000b;
+    --success: #16a34a;
+    --warning: #d97706;
+    --info: #3a81f6;
+
+    /* Charts (shadcn blue scale) */
+    --chart-1: #91c5ff;
+    --chart-2: #3a81f6;
+    --chart-3: #2563ef;
+    --chart-4: #1a4eda;
+    --chart-5: #1f3fad;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+    --radius: 10px;
+
+    /* Ripple button — JS click ripple tint */
+    --button-ripple-color: rgba(10, 10, 10, 0.18);
+  }
+
+  :root.dark {
+    /* Surfaces — neutral dark */
+    --bg-base: #0a0a0a;
+    --bg-surface: #171717;
+    --bg-elevated: #1f1f1f;
+    --bg-input: #262626;
+    --bg-card: #171717;
+    --bg-hover: #262626;
+    --bg-badge: #1a1a1a;
+
+    /* Text */
+    --text-primary: #fafafa;
+    --text-secondary: #d4d4d4;
+    --text-muted: #a1a1a1;
+    --text-placeholder: #737373;
+
+    /* Borders */
+    --border: #262626;
+    --border-strong: #404040;
+
+    /* Accent — primary (white-on-dark) */
+    --accent: #fafafa;
+    --accent-hover: #e5e5e5;
+    --accent-foreground: #0a0a0a;
+
+    /* Status */
+    --danger: #f87171;
+    --success: #4ade80;
+    --warning: #fbbf24;
+    --info: #60a5fa;
+
+    /* Charts */
+    --chart-1: #91c5ff;
+    --chart-2: #3a81f6;
+    --chart-3: #2563ef;
+    --chart-4: #1a4eda;
+    --chart-5: #1f3fad;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+    --radius: 10px;
+
+    /* Ripple button — JS click ripple tint */
+    --button-ripple-color: rgba(250, 250, 250, 0.45);
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-sans);
+  }
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* Custom scrollbar class for internal containers */
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* ReactFlow controls — follow the app theme instead of the library's white default */
+.react-flow__controls-button {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.react-flow__controls-button:hover {
+  background: var(--bg-hover);
+}
+.react-flow__controls-button svg {
+  fill: currentColor;
+}
+
+/* Animation keyframes */
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-4px); }
+}
+
+.animate-bounce-dot {
+  animation: bounce-dot 0.6s infinite;
+}
+
+/* Button click ripple */
+@keyframes button-ripple {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.animate-button-ripple {
+  animation: button-ripple 0.6s ease-out forwards;
+}
+
+/* Accent glow for primary buttons */
+.glow-gold {
+  box-shadow: 0 0 20px rgba(58, 129, 246, 0.12);
+}
+
+/* Card hover lift effect */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

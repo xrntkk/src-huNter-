@@ -1,0 +1,11 @@
+language: typescript
+dependsOn: []
+tasks:
+  migrate:
+    command: node --import tsx/esm drizzle.migrate.ts
+    inputs:
+      - 'src/schema/**/*'
+  typecheck:
+    command: pnpm typecheck
+    inputs:
+      - 'src/**/*'
